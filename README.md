@@ -1,4 +1,4 @@
-#QUAKE 3 Docker Dedicated Server#
+# QUAKE 3 Docker Dedicated Server
 
 Для запуска необходимо скопировать в корень папку baseq3 из развернутой игры, собрать образ в докере и запустить контейнер
 
