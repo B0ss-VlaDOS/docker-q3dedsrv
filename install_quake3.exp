@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+set timeout -1
+spawn ./setup.data/bin/Linux/x86/setup -n -v 1 -i /usr/local/games/quake3 -o "Dedicated server"
+expect {
+    "Do you accept the license agreement" {
+        send "y\r"
+        exp_continue
+    }
+    eof
+}

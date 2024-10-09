@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "If you read this, then the setup script failed miserably.
+Please report to ttimo@idsoftware.com
+"

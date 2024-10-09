@@ -1,0 +1,56 @@
+<?xml version="1.0" standalone="yes"?>
+<install product="quake3" desc="Quake III Arena Point Release" version="$1" postinstall="sh setup.data/postinstall.sh $*" nouninstall="yes">
+  <eula>
+  Q3A_EULA.txt
+  </eula>
+  <option required="true">
+    Point Release Base Install
+    <binary arch="any" libc="any" symlink="quake3" icon="quake3.xpm">
+      quake3
+    </binary>
+    <binary arch="any" libc="any" symlink="quake3-smp" icon="quake3.xpm">
+      quake3-smp
+    </binary>
+    <binary arch="any" libc="any">
+      quake3.x86
+			quake3-smp.x86
+    </binary>
+    <files>
+      quake3.xpm
+      Q3A_EULA.txt
+      INSTALL
+      README-linux.txt
+      README-Id-7-26-01.html
+			CHANGES-1.32.txt
+			Docs/
+      baseq3/
+    </files>
+  </option>
+  <option install="true">
+    <help>
+    Quake III: Team Arena files
+    </help>
+    Quake III: Team Arena
+    <files>
+      missionpack/
+    </files>  
+  </option>
+  <option install="true">
+    <help>
+    Standalone server, not linked against X11
+    </help>
+    Dedicated server
+    <binary arch="any" libc="any">
+      q3ded
+    </binary>
+  </option>
+  <option install="true">
+    PunkBuster client/server files
+    <eula>
+      pb/PB_EULA.txt
+    </eula>
+    <files>
+      pb/
+    </files>
+  </option>
+</install>
