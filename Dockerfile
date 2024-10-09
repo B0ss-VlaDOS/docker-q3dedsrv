@@ -84,8 +84,7 @@ RUN chmod -R 777 /usr/local/games/quake3
 COPY baseq3 /usr/local/games/quake3/baseq3
 
 # Создаём файл конфигурации сервера Quake 3
-RUN mkdir -p /usr/local/games/quake3/quake3-server && \
-    echo "// Basic Quake III Server Configuration\n\
+RUN echo "// Basic Quake III Server Configuration\n\
 seta sv_hostname \"Docker Quake 3 Server\"\n\
 seta net_port \"27960\"\n\
 seta sv_maxclients \"16\"\n\
@@ -101,6 +100,7 @@ seta sv_timeout \"200\"" > /usr/local/games/quake3/server.cfg
 
 # Переключаемся на пользователя quake3user для работы с сервером
 USER quake3user
+
 WORKDIR /usr/local/games/quake3
 
 # Экспонируем порты SSH и Quake 3
