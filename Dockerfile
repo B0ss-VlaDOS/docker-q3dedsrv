@@ -56,21 +56,26 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Настраиваем SSH-сервер
 RUN mkdir /var/run/sshd && \
-    echo 'root:password' | chpasswd && \
+    echo 'root:Back2ThaR00t$' | chpasswd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
 # Создаём пользователя для сервера Quake 3
 RUN useradd -m -s /bin/bash quake3user && \
-    echo 'quake3user:quake3password' | chpasswd && \
+    echo 'quake3user:Q1w2e3r4!' | chpasswd && \
     usermod -aG sudo quake3user
+
+# Копируем патч в нужную директорию
+COPY ./setup/Docs/LinuxFAQ/udp_wide_broadcast.patch /home/quake3user/setup/Docs/LinuxFAQ/
 
 # Копируем папку setup и (при необходимости) скрипт expect
 COPY setup /home/quake3user/setup
+
 # Если вы больше не используете expect, можно убрать следующую строку
 COPY install_quake3.exp /home/quake3user/install_quake3.exp
 
 # Устанавливаем права на скрипт установки
+
 WORKDIR /home/quake3user/setup
 RUN chmod +x ./setup.data/bin/Linux/x86/setup
 
